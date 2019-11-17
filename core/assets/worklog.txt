@@ -1,0 +1,7 @@
+============
+| 10/26/19 |
+============
+
+# More implementation of textures into classes, both StaticEntity & AnimatedEntity.
+
+- Added Floor Spikes

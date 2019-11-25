@@ -62,6 +62,14 @@ public class DebugState implements State {
 		debugBlocksByID.add(new FloorLadder(10, 0));
 		
 		debugBlocksByID.add(new FloorSpikes(11, 0));
+		
+		debugBlocksByID.add(new WallSideTopLeft(0, 5));
+		debugBlocksByID.add(new WallSideMidLeft(0, 4));
+		debugBlocksByID.add(new WallSideFrontLeft(0, 3));
+		
+		debugBlocksByID.add(new WallSideTopRight(1, 5));
+		debugBlocksByID.add(new WallSideMidRight(1, 4));
+		debugBlocksByID.add(new WallSideFrontRight(1, 3));
 	}
 	
 	@Override

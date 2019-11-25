@@ -9,7 +9,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.johncollin.catacombcrawlers.state.DebugState;
 import org.johncollin.catacombcrawlers.state.State;
-import sun.jvm.hotspot.debugger.DebuggerUtilities;
 
 public class CatacombCrawlers extends ApplicationAdapter {
 	

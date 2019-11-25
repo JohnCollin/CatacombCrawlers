@@ -70,6 +70,16 @@ public class DebugState implements State {
 		debugBlocksByID.add(new WallSideTopRight(1, 5));
 		debugBlocksByID.add(new WallSideMidRight(1, 4));
 		debugBlocksByID.add(new WallSideFrontRight(1, 3));
+		
+		debugBlocksByID.add(new WallCornerTopLeft(2, 6));
+		debugBlocksByID.add(new WallCornerLeft(2, 5));
+		debugBlocksByID.add(new WallCornerBottomLeft(2, 4));
+		debugBlocksByID.add(new WallCornerFrontLeft(2, 3));
+		
+		debugBlocksByID.add(new WallCornerTopRight(3, 6));
+		debugBlocksByID.add(new WallCornerRight(3, 5));
+		debugBlocksByID.add(new WallCornerBottomRight(3, 4));
+		debugBlocksByID.add(new WallCornerFrontRight(3, 3));
 	}
 	
 	@Override

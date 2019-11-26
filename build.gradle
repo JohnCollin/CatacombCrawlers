@@ -48,7 +48,8 @@ project(":desktop") {
         api "com.badlogicgames.gdx:gdx-controllers-desktop:$gdxVersion"
         api "com.badlogicgames.gdx:gdx-controllers-platform:$gdxVersion:natives-desktop"
         api "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
-        
+
+        compile "com.badlogicgames.gdx:gdx-bullet-platform:$gdxVersion:natives-desktop"
     }
 }
 
@@ -60,6 +61,7 @@ project(":core") {
         api "com.badlogicgames.gdx:gdx:$gdxVersion"
         api "com.badlogicgames.gdx:gdx-controllers:$gdxVersion"
         api "net.dermetfan.libgdx-utils:libgdx-utils:0.13.4"
-        
+
+        compile "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
     }
 }

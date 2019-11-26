@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import org.johncollin.catacombcrawlers.fmenu.DebugMenu;
 import org.johncollin.catacombcrawlers.state.DebugState;
 import org.johncollin.catacombcrawlers.state.State;
 
@@ -17,6 +18,8 @@ public class CatacombCrawlers extends ApplicationAdapter {
 	
 	private State currentState;
 	private DebugState debugState;
+	
+	private DebugMenu debugMenu;
 	
 	@Override
 	public void create () {
@@ -31,6 +34,8 @@ public class CatacombCrawlers extends ApplicationAdapter {
 		
 		this.debugState = new DebugState();
 		
+		this.debugMenu = new DebugMenu();
+		
 		this.currentState = debugState;
 	}
 	
@@ -41,6 +46,8 @@ public class CatacombCrawlers extends ApplicationAdapter {
 	}
 	
 	private void tick() {
+		debugMenu.tick();
+		
 		if(Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
 			Gdx.app.exit();
 		}
@@ -56,6 +63,7 @@ public class CatacombCrawlers extends ApplicationAdapter {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
 		currentState.render(batch);
+		debugMenu.render(batch);
 		batch.end();
 	}
 	
@@ -64,5 +72,7 @@ public class CatacombCrawlers extends ApplicationAdapter {
 		batch.dispose();
 		
 		currentState.dispose();
+		
+		debugMenu.dispose();
 	}
 }

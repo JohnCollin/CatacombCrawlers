@@ -6,6 +6,8 @@ public abstract class Entity {
 	
 	public static int TILED_RES = 96;
 	
+	public static int SHEETPIXEL_REALPIXEL_RATIO = 6;
+	
 	protected int x, y;
 	protected int width, height;
 	

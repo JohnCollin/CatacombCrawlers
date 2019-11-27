@@ -3,6 +3,7 @@ package org.johncollin.catacombcrawlers.state;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.johncollin.catacombcrawlers.entity.Entity;
 import org.johncollin.catacombcrawlers.entity.floor.*;
+import org.johncollin.catacombcrawlers.entity.interactable.Door;
 import org.johncollin.catacombcrawlers.entity.wall.*;
 import org.johncollin.catacombcrawlers.entity.wall.banner.WallBannerBlue;
 import org.johncollin.catacombcrawlers.entity.wall.banner.WallBannerGreen;
@@ -25,8 +26,15 @@ public class DebugState implements State {
 		generateFloorDebugTiles();
 
 		generateAlternateWallTiles();
+		
+		generateSpecialWallTiles();
 	}
-
+	
+	private void generateSpecialWallTiles() {
+		debugBlocksByID.add(new Door(14, 1, false));
+		debugBlocksByID.add(new Door(14, 4, true));
+	}
+	
 	private void generateAlternateWallTiles() {
 		debugBlocksByID.add(new WallSideTopLeft(0, 5));
 		debugBlocksByID.add(new WallSideMidLeft(0, 4));

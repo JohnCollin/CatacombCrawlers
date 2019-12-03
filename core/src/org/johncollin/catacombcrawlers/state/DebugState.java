@@ -4,6 +4,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.johncollin.catacombcrawlers.entity.Entity;
 import org.johncollin.catacombcrawlers.entity.floor.*;
 import org.johncollin.catacombcrawlers.entity.interactable.Door;
+import org.johncollin.catacombcrawlers.entity.item.ItemBigFlask;
+import org.johncollin.catacombcrawlers.entity.item.ItemFlask;
 import org.johncollin.catacombcrawlers.entity.wall.*;
 import org.johncollin.catacombcrawlers.entity.wall.banner.WallBannerBlue;
 import org.johncollin.catacombcrawlers.entity.wall.banner.WallBannerGreen;
@@ -28,6 +30,20 @@ public class DebugState implements State {
 		generateAlternateWallTiles();
 		
 		generateSpecialWallTiles();
+		
+		generateItems();
+	}
+	
+	private void generateItems() {
+		debugBlocksByID.add(new ItemFlask(6, 3, 0));
+		debugBlocksByID.add(new ItemFlask(7, 3, 1));
+		debugBlocksByID.add(new ItemFlask(8, 3, 2));
+		debugBlocksByID.add(new ItemFlask(9, 3, 3));
+		
+		debugBlocksByID.add(new ItemBigFlask(6, 4, 0));
+		debugBlocksByID.add(new ItemBigFlask(7, 4, 1));
+		debugBlocksByID.add(new ItemBigFlask(8, 4, 2));
+		debugBlocksByID.add(new ItemBigFlask(9, 4, 3));
 	}
 	
 	private void generateSpecialWallTiles() {

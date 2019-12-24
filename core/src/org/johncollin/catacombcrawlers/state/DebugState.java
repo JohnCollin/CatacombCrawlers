@@ -5,7 +5,10 @@ import org.johncollin.catacombcrawlers.entity.Entity;
 import org.johncollin.catacombcrawlers.entity.floor.*;
 import org.johncollin.catacombcrawlers.entity.interactable.Door;
 import org.johncollin.catacombcrawlers.entity.item.ItemBigFlask;
+import org.johncollin.catacombcrawlers.entity.item.ItemCoin;
 import org.johncollin.catacombcrawlers.entity.item.ItemFlask;
+import org.johncollin.catacombcrawlers.entity.misc.TileCrate;
+import org.johncollin.catacombcrawlers.entity.misc.TileSkull;
 import org.johncollin.catacombcrawlers.entity.wall.*;
 import org.johncollin.catacombcrawlers.entity.wall.banner.WallBannerBlue;
 import org.johncollin.catacombcrawlers.entity.wall.banner.WallBannerGreen;
@@ -22,28 +25,37 @@ public class DebugState implements State {
 	
 	public DebugState() {
 		debugBlocksByID = new ArrayList<Entity>();
-
-		generateBasicWallDebugTiles();
-
-		generateFloorDebugTiles();
-
-		generateAlternateWallTiles();
+		
+		generateTileComplements();
+		
+		generateItems();
 		
 		generateSpecialWallTiles();
 		
-		generateItems();
+		generateAlternateWallTiles();
+		
+		generateBasicWallTiles();
+		
+		generateFloorDebugTiles();
+	}
+	
+	private void generateTileComplements() {
+		debugBlocksByID.add(new TileSkull(6, 5));
+		debugBlocksByID.add(new TileCrate(7, 5));
 	}
 	
 	private void generateItems() {
+		debugBlocksByID.add(new ItemBigFlask(6, 4, 0));
+		debugBlocksByID.add(new ItemBigFlask(7, 4, 1));
+		debugBlocksByID.add(new ItemBigFlask(8, 4, 2));
+		debugBlocksByID.add(new ItemBigFlask(9, 4, 3));
+		
 		debugBlocksByID.add(new ItemFlask(6, 3, 0));
 		debugBlocksByID.add(new ItemFlask(7, 3, 1));
 		debugBlocksByID.add(new ItemFlask(8, 3, 2));
 		debugBlocksByID.add(new ItemFlask(9, 3, 3));
 		
-		debugBlocksByID.add(new ItemBigFlask(6, 4, 0));
-		debugBlocksByID.add(new ItemBigFlask(7, 4, 1));
-		debugBlocksByID.add(new ItemBigFlask(8, 4, 2));
-		debugBlocksByID.add(new ItemBigFlask(9, 4, 3));
+		debugBlocksByID.add(new ItemCoin(8, 5));
 	}
 	
 	private void generateSpecialWallTiles() {
@@ -79,7 +91,7 @@ public class DebugState implements State {
 		debugBlocksByID.add(new WallInnerCornerMidRight(4, 3));
 	}
 
-	private void generateBasicWallDebugTiles() {
+	private void generateBasicWallTiles() {
 		debugBlocksByID.add(new WallLeft(0, 1));
 		debugBlocksByID.add(new WallMiddle(1, 1));
 		debugBlocksByID.add(new WallRight(2, 1));

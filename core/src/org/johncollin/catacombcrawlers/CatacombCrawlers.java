@@ -8,24 +8,28 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.johncollin.catacombcrawlers.fmenu.DebugMenu;
+import org.johncollin.catacombcrawlers.graphics.Assets;
 import org.johncollin.catacombcrawlers.state.DebugState;
 import org.johncollin.catacombcrawlers.state.State;
 
 public class CatacombCrawlers extends ApplicationAdapter {
 	
+	//Graphics
 	private SpriteBatch batch;
 	private Texture tileset;
 	
+	//Game States
 	private State currentState;
 	private DebugState debugState;
 	
+	//F3 Menu (DEBUG)
 	private DebugMenu debugMenu;
 	
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
 		
-		tileset = new Texture("tileset.png");
+		tileset = new Texture(Assets.tileset);
 		CatacombCrawlersAPI.getInstance().setGameTileset(tileset);
 		
 		CatacombCrawlersAPI.getInstance().setCatacombCrawlers(this);
@@ -40,7 +44,7 @@ public class CatacombCrawlers extends ApplicationAdapter {
 	}
 	
 	private void setupCustomCursor() {
-		Pixmap pixmap = new Pixmap(Gdx.files.internal("cursor.png"));
+		Pixmap pixmap = new Pixmap(Gdx.files.internal(Assets.cursor));
 		Gdx.graphics.setCursor(Gdx.graphics.newCursor(pixmap, 0, 0));
 		pixmap.dispose();
 	}

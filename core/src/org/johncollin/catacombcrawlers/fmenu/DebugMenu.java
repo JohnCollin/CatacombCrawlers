@@ -41,7 +41,13 @@ public class DebugMenu extends Entity {
 		if(enabled) {
 			currentDebugMessage =
 				CatacombCrawlers.OFFICIAL_NAME + " " + CatacombCrawlers.VERSION + " (" + CatacombCrawlers.GAME_TYPE + ")\n" +
-				Gdx.graphics.getFramesPerSecond() + " fps"
+				Gdx.graphics.getFramesPerSecond() + " fps\n\n" +
+				
+				"Internal Server @ 0ms ticks\n\n" +
+				
+				"Java: " + System.getProperty("java.version") + "\n" +
+				"Mem: " + Runtime.getRuntime().totalMemory() + "\n" +
+				"Allocated: " + (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) + "\n"
 			;
 			
 			font.draw(batch, currentDebugMessage, 32, Gdx.graphics.getHeight() - 32);

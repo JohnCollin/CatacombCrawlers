@@ -24,8 +24,6 @@
 
 package org.johncollin.catacombcrawlers.entity.floor;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import org.johncollin.catacombcrawlers.entity.AnimatedEntity;
 import org.johncollin.catacombcrawlers.entity.Entity;
 

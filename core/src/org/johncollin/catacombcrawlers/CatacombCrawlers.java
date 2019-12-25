@@ -14,6 +14,10 @@ import org.johncollin.catacombcrawlers.state.State;
 
 public class CatacombCrawlers extends ApplicationAdapter {
 	
+	public static final String OFFICIAL_NAME = "CatacombCrawlers";
+	public static final String VERSION = "1.1.1";
+	public static final String GAME_TYPE = CatacombCrawlers.VERSION + "/vanilla";
+	
 	//Graphics
 	private SpriteBatch batch;
 	private Texture tileset;

@@ -33,6 +33,8 @@ public interface Interactable {
     
     /**
      * Base abstract method for objects to implement for when something interacts with it.
+     *
+     * @since rev003-1.0.0-SNAPSHOT
      */
     void onInteract();
 

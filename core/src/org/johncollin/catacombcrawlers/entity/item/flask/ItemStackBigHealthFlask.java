@@ -24,8 +24,26 @@
 
 package org.johncollin.catacombcrawlers.entity.item.flask;
 
+/**
+ * ItemStackBigHealthFlask base class
+ *
+ * @see org.johncollin.catacombcrawlers.entity.Entity
+ * @see org.johncollin.catacombcrawlers.entity.StaticEntity
+ * @see org.johncollin.catacombcrawlers.entity.item.ItemStack
+ * @see org.johncollin.catacombcrawlers.entity.item.flask.ItemStackBigFlask
+ *
+ * @since rev-004-1.0.0-SNAPSHOT
+ */
 public class ItemStackBigHealthFlask extends ItemStackBigFlask {
 	
+	/**
+	 * Basic ItemStackBigHealthFlask Constructor
+	 *
+	 * @param tx The coordinate of the x plane in a unit of standard game tiles.
+	 * @param ty The coordinate of the y plane in a unit of standard game tiles.
+	 *
+	 * @since rev-004-1.0.0-SNAPSHOT
+	 */
 	public ItemStackBigHealthFlask(int tx, int ty) {
 		super(tx, ty, 0);
 	}

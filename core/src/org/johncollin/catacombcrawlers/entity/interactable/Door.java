@@ -41,11 +41,38 @@ import org.johncollin.catacombcrawlers.entity.StaticEntity;
  */
 public class Door extends StaticEntity implements Interactable {
 	
+	/**
+	 * Special boolean signifying whether the door is currently open or not.
+	 *
+	 * @since rev003-1.0.0-SNAPSHOT
+	 */
 	private boolean isOpen;
 	
+	/**
+	 * The door frame textures
+	 *
+	 * @since rev003-1.0.0-SNAPSHOT
+	 */
 	private TextureRegion[] doorFrame;
+	
+	/**
+	 * The actual door leaf (physical moving part of the door) textures
+	 *
+	 * @since rev003-1.0.0-SNAPSHOT
+	 */
 	private TextureRegion[] doorLeaf;
 	
+	/**
+	 * Door basic class constructor.
+	 * <p>
+	 * Constructs one of type Door at a given tile coordinate location.
+	 *
+	 * @param tx The coordinate of the x plane in a unit of standard game tiles.
+	 * @param ty The coordinate of the y plane in a unit of standard game tiles.
+	 * @param isOpen The starting orientation of the door, whether it is open or not.
+	 *
+	 * @since rev003-1.0.0-SNAPSHOT
+	 */
 	public Door(int tx, int ty, boolean isOpen) {
 		super(tx * Entity.TILED_RES, ty * Entity.TILED_RES, 64 * Entity.SHEETPIXEL_REALPIXEL_RATIO, 35 * Entity.SHEETPIXEL_REALPIXEL_RATIO,
 			16, 221, 64, 35);
@@ -64,6 +91,18 @@ public class Door extends StaticEntity implements Interactable {
 		};
 	}
 	
+	/**
+	 * Overridden render method of {@link org.johncollin.catacombcrawlers.entity.StaticEntity}
+	 * <p>
+	 * Renders all the door frames and leaf frames.
+	 *
+	 * @see org.johncollin.catacombcrawlers.entity.Entity
+	 * @see org.johncollin.catacombcrawlers.entity.StaticEntity
+	 *
+	 * @param batch SpriteBatch used to render all the objects necessary.
+	 *
+	 * @since rev003-1.0.0-SNAPSHOT
+	 */
 	@Override
 	public void render(SpriteBatch batch) {
 		batch.draw(doorFrame[0], x, y,
@@ -77,8 +116,15 @@ public class Door extends StaticEntity implements Interactable {
 			doorFrame[2].getRegionWidth() * Entity.SHEETPIXEL_REALPIXEL_RATIO * 2, doorFrame[2].getRegionHeight() * Entity.SHEETPIXEL_REALPIXEL_RATIO);
 	}
 	
+	/**
+	 * Overridden onInteract method of {@link org.johncollin.catacombcrawlers.entity.interactable.Interactable}
+	 * <p>
+	 * Sets the leaf orientation to the opposite of what it was.
+	 *
+	 * @since rev003-1.0.0-SNAPSHOT
+	 */
 	@Override
 	public void onInteract() {
-	
+		isOpen = !isOpen;
 	}
 }

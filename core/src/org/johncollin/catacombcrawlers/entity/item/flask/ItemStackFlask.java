@@ -26,8 +26,28 @@ package org.johncollin.catacombcrawlers.entity.item.flask;
 
 import org.johncollin.catacombcrawlers.entity.item.ItemStack;
 
+/**
+ * ItemStackFlask base class
+ *
+ * @see org.johncollin.catacombcrawlers.entity.Entity
+ * @see org.johncollin.catacombcrawlers.entity.StaticEntity
+ * @see org.johncollin.catacombcrawlers.entity.item.ItemStack
+ *
+ * @since rev-004-1.0.0-SNAPSHOT
+ */
 public class ItemStackFlask extends ItemStack {
 	
+	/**
+	 * Basic ItemStackFlask Constructor
+	 *
+	 * @param tx The coordinate of the x plane in a unit of standard game tiles.
+	 * @param ty The coordinate of the y plane in a unit of standard game tiles.
+	 * @param var The tile variant of floor as a reference to which texture is used.
+	 *
+	 * @see org.johncollin.catacombcrawlers.entity.StaticEntity
+	 *
+	 * @since rev-004-1.0.0-SNAPSHOT
+	 */
 	public ItemStackFlask(int tx, int ty, int var) {
 		super(tx, ty, 288 + (var * 16), 240, 16, 16);
 	}

@@ -4,8 +4,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.johncollin.catacombcrawlers.entity.Entity;
 import org.johncollin.catacombcrawlers.entity.floor.*;
 import org.johncollin.catacombcrawlers.entity.interactable.Door;
-import org.johncollin.catacombcrawlers.entity.item.ItemCoin;
 import org.johncollin.catacombcrawlers.entity.item.flask.*;
+import org.johncollin.catacombcrawlers.entity.item.misc.ItemStackCoin;
 import org.johncollin.catacombcrawlers.entity.misc.TileCrate;
 import org.johncollin.catacombcrawlers.entity.misc.TileSkull;
 import org.johncollin.catacombcrawlers.entity.wall.*;
@@ -54,7 +54,7 @@ public class DebugState implements State {
 		debugBlocksByID.add(new ItemStackMagicFlask(8, 3));
 		debugBlocksByID.add(new ItemStackLuckFlask(9, 3));
 		
-		debugBlocksByID.add(new ItemCoin(8, 5));
+		debugBlocksByID.add(new ItemStackCoin(8, 5));
 	}
 	
 	private void generateSpecialWallTiles() {

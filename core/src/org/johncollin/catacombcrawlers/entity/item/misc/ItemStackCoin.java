@@ -1,14 +1,14 @@
-package org.johncollin.catacombcrawlers.entity.item;
+package org.johncollin.catacombcrawlers.entity.item.misc;
 
-import org.johncollin.catacombcrawlers.entity.AnimatedEntity;
 import org.johncollin.catacombcrawlers.entity.Entity;
+import org.johncollin.catacombcrawlers.entity.item.AnimatedItemStack;
 
-public class ItemCoin extends AnimatedEntity {
+public class ItemStackCoin extends AnimatedItemStack {
 	
 	private static int animClock = 0;
 	private static final int animClockMax = 5;
 	
-	public ItemCoin(int tx, int ty) {
+	public ItemStackCoin(int tx, int ty) {
 		super((tx * Entity.TILED_RES) + 4, (ty * Entity.TILED_RES) + 4, Entity.TILED_RES / 4, Entity.TILED_RES / 4,
 			288, 272, 8, 8, 4);
 	}

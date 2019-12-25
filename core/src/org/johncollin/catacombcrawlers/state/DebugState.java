@@ -4,9 +4,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.johncollin.catacombcrawlers.entity.Entity;
 import org.johncollin.catacombcrawlers.entity.floor.*;
 import org.johncollin.catacombcrawlers.entity.interactable.Door;
-import org.johncollin.catacombcrawlers.entity.item.ItemBigFlask;
 import org.johncollin.catacombcrawlers.entity.item.ItemCoin;
-import org.johncollin.catacombcrawlers.entity.item.ItemFlask;
+import org.johncollin.catacombcrawlers.entity.item.flask.*;
 import org.johncollin.catacombcrawlers.entity.misc.TileCrate;
 import org.johncollin.catacombcrawlers.entity.misc.TileSkull;
 import org.johncollin.catacombcrawlers.entity.wall.*;
@@ -45,15 +44,15 @@ public class DebugState implements State {
 	}
 	
 	private void generateItems() {
-		debugBlocksByID.add(new ItemBigFlask(6, 4, 0));
-		debugBlocksByID.add(new ItemBigFlask(7, 4, 1));
-		debugBlocksByID.add(new ItemBigFlask(8, 4, 2));
-		debugBlocksByID.add(new ItemBigFlask(9, 4, 3));
+		debugBlocksByID.add(new ItemStackBigHealthFlask(6, 4));
+		debugBlocksByID.add(new ItemStackBigStaminaFlask(7, 4));
+		debugBlocksByID.add(new ItemStackBigMagicFlask(8, 4));
+		debugBlocksByID.add(new ItemStackBigLuckFlask(9, 4));
 		
-		debugBlocksByID.add(new ItemFlask(6, 3, 0));
-		debugBlocksByID.add(new ItemFlask(7, 3, 1));
-		debugBlocksByID.add(new ItemFlask(8, 3, 2));
-		debugBlocksByID.add(new ItemFlask(9, 3, 3));
+		debugBlocksByID.add(new ItemStackHealthFlask(6, 3));
+		debugBlocksByID.add(new ItemStackStaminaFlask(7, 3));
+		debugBlocksByID.add(new ItemStackMagicFlask(8, 3));
+		debugBlocksByID.add(new ItemStackLuckFlask(9, 3));
 		
 		debugBlocksByID.add(new ItemCoin(8, 5));
 	}

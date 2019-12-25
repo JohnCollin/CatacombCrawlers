@@ -24,10 +24,16 @@
 
 package org.johncollin.catacombcrawlers.entity.interactable;
 
-import org.johncollin.catacombcrawlers.entity.AnimatedEntity;
-
+/**
+ * Interactable interface for game objects that players and entities are able to interact with.
+ *
+ * @since rev003-1.0.0-SNAPSHOT
+ */
 public interface Interactable {
-
+    
+    /**
+     * Base abstract method for objects to implement for when something interacts with it.
+     */
     void onInteract();
 
 }

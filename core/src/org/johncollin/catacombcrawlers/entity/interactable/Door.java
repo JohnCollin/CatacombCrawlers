@@ -24,14 +24,21 @@
 
 package org.johncollin.catacombcrawlers.entity.interactable;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import org.johncollin.catacombcrawlers.CatacombCrawlers;
 import org.johncollin.catacombcrawlers.CatacombCrawlersAPI;
 import org.johncollin.catacombcrawlers.entity.Entity;
 import org.johncollin.catacombcrawlers.entity.StaticEntity;
 
+/**
+ * Basic door class (special wall tile)
+ *
+ * @see org.johncollin.catacombcrawlers.entity.Entity
+ * @see org.johncollin.catacombcrawlers.entity.StaticEntity
+ * @see org.johncollin.catacombcrawlers.entity.interactable.Interactable
+ *
+ * @since rev003-1.0.0-SNAPSHOT
+ */
 public class Door extends StaticEntity implements Interactable {
 	
 	private boolean isOpen;

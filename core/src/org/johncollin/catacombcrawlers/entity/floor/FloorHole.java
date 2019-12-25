@@ -27,8 +27,28 @@ package org.johncollin.catacombcrawlers.entity.floor;
 import org.johncollin.catacombcrawlers.entity.Entity;
 import org.johncollin.catacombcrawlers.entity.StaticEntity;
 
+/**
+ * Basic floor hole class (special tile)
+ *
+ * @see org.johncollin.catacombcrawlers.entity.Entity
+ * @see org.johncollin.catacombcrawlers.entity.StaticEntity
+ *
+ * @since rev002-1.0.0-SNAPSHOT
+ */
 public class FloorHole extends StaticEntity {
-
+    
+    /**
+     * FloorHole basic class constructor.
+     * <p>
+     * Constructs one of type FloorHole at a given tile coordinate location.
+     *
+     * @param tx The coordinate of the x plane in a unit of standard game tiles.
+     * @param ty The coordinate of the y plane in a unit of standard game tiles.
+     *
+     * @see org.johncollin.catacombcrawlers.entity.Entity
+     *
+     * @since rev002-1.0.0-SNAPSHOT
+     */
     public FloorHole(int tx, int ty) {
         super(tx * Entity.TILED_RES, ty * Entity.TILED_RES, Entity.TILED_RES, Entity.TILED_RES,
                 96, 144, 16, 16);

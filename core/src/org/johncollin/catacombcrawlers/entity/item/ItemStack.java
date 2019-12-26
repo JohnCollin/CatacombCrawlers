@@ -28,22 +28,65 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.johncollin.catacombcrawlers.entity.Entity;
 import org.johncollin.catacombcrawlers.entity.StaticEntity;
 
+/**
+ * ItemStack base class
+ *
+ * @see org.johncollin.catacombcrawlers.entity.Entity
+ * @see org.johncollin.catacombcrawlers.entity.StaticEntity
+ *
+ * @since rev-004-1.0.0-SNAPSHOT
+ */
 public abstract class ItemStack extends StaticEntity {
 	
+	/**
+	 * Boolean to show whether to render within an inventory or on the ground at a location.
+	 *
+	 * @since rev-004-1.0.0-SNAPSHOT
+	 */
 	protected boolean isInInventory;
 	
+	/**
+	 * Basic ItemStack Constructor
+	 *
+	 * @param tx The coordinate of the x plane in a unit of standard game tiles.
+	 * @param ty The coordinate of the y plane in a unit of standard game tiles.
+	 * @param sx The place within the game tile spreadsheet where the texture is located on the x axis
+	 * @param sy The place within the game tile spreadsheet where the texture is located on the y axis
+	 * @param swidth The width of the texture within the game tile spreadsheet on the x axis
+	 * @param sheight The width of the texture within the game tile spreadsheet on the y axis
+	 */
 	public ItemStack(int tx, int ty,  int sx, int sy, int swidth, int sheight) {
 		super(tx * Entity.TILED_RES, ty * Entity.TILED_RES, Entity.TILED_RES, Entity.TILED_RES, sx, sy, swidth, sheight);
 		
 		this.isInInventory = false;
 	}
 	
+	/**
+	 * ItemStack Constructor with isInInventory flag
+	 *
+	 * @param tx The coordinate of the x plane in a unit of standard game tiles.
+	 * @param ty The coordinate of the y plane in a unit of standard game tiles.
+	 * @param sx The place within the game tile spreadsheet where the texture is located on the x axis
+	 * @param sy The place within the game tile spreadsheet where the texture is located on the y axis
+	 * @param swidth The width of the texture within the game tile spreadsheet on the x axis
+	 * @param sheight The width of the texture within the game tile spreadsheet on the y axis
+	 * @param isInInventory The flag whether the item is in the inventory or not.
+	 */
 	public ItemStack(int tx, int ty, int sx, int sy, int swidth, int sheight, boolean isInInventory) {
 		super(tx * Entity.TILED_RES, ty * Entity.TILED_RES, Entity.TILED_RES * (16 / swidth), Entity.TILED_RES * (16 / swidth), sx, sy, swidth, sheight);
 		
 		this.isInInventory = isInInventory;
 	}
 	
+	/**
+	 * Overridden method from {@link org.johncollin.catacombcrawlers.entity.StaticEntity} for special
+	 * update method.
+	 *
+	 * @see org.johncollin.catacombcrawlers.entity.Entity
+	 * @see org.johncollin.catacombcrawlers.entity.AnimatedEntity
+	 *
+	 * @since rev004-1.0.0-SNAPSHOT
+	 */
 	@Override
 	public void render(SpriteBatch batch) {
 		if(!isInInventory) {
@@ -51,6 +94,15 @@ public abstract class ItemStack extends StaticEntity {
 		}
 	}
 	
+	/**
+	 * Special method that tells the entity to render at a specific point.
+	 *
+	 * @param batch SpriteBatch used to render images within LibGDX.
+	 * @param x The coordinate of the x plane in pixels.
+	 * @param y The coordinate of the y plane in pixels.
+	 * @param width The width of the texture in pixels.
+	 * @param height The height of the texture in pixels.
+	 */
 	public void renderAt(SpriteBatch batch, int x, int y, int width, int height) {
 		if(isInInventory) {
 			batch.draw(texture, x, y, width, height);

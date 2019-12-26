@@ -28,34 +28,106 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.johncollin.catacombcrawlers.entity.AnimatedEntity;
 import org.johncollin.catacombcrawlers.entity.Entity;
 
+/**
+ * AnimatedItemStack base class
+ *
+ * @see org.johncollin.catacombcrawlers.entity.Entity
+ * @see org.johncollin.catacombcrawlers.entity.AnimatedEntity
+ *
+ * @since rev-004-1.0.0-SNAPSHOT
+ */
 public abstract class AnimatedItemStack extends AnimatedEntity {
 	
+	/**
+	 * Boolean to show whether to render within an inventory or on the ground at a location.
+	 *
+	 * @since rev-004-1.0.0-SNAPSHOT
+	 */
 	protected boolean isInInventory;
 	
+	/**
+	 * Basic AnimatedItemStack Constructor
+	 *
+	 * @param tx The coordinate of the x plane in a unit of standard game tiles.
+	 * @param ty The coordinate of the y plane in a unit of standard game tiles.
+	 * @param sx The place within the game tile spreadsheet where the texture is located on the x axis
+	 * @param sy The place within the game tile spreadsheet where the texture is located on the y axis
+	 * @param swidth The width of the texture within the game tile spreadsheet on the x axis
+	 * @param sheight The width of the texture within the game tile spreadsheet on the y axis
+	 * @param sframes The number of frames in the animation.
+	 */
 	public AnimatedItemStack(int tx, int ty, int sx, int sy, int swidth, int sheight, int sframes) {
 		super(tx * Entity.TILED_RES, ty * Entity.TILED_RES, Entity.TILED_RES * (16 / swidth), Entity.TILED_RES * (16 / swidth), sx, sy, swidth, sheight, sframes);
 		
 		this.isInInventory = false;
 	}
 	
+	/**
+	 * AnimatedItemStack Constructor with isInInventory flag
+	 *
+	 * @param tx The coordinate of the x plane in a unit of standard game tiles.
+	 * @param ty The coordinate of the y plane in a unit of standard game tiles.
+	 * @param sx The place within the game tile spreadsheet where the texture is located on the x axis
+	 * @param sy The place within the game tile spreadsheet where the texture is located on the y axis
+	 * @param swidth The width of the texture within the game tile spreadsheet on the x axis
+	 * @param sheight The width of the texture within the game tile spreadsheet on the y axis
+	 * @param sframes The number of frames in the animation.
+	 * @param isInInventory The flag whether the item is in the inventory or not.
+	 */
 	public AnimatedItemStack(int tx, int ty, int sx, int sy, int swidth, int sheight, int sframes, boolean isInInventory) {
 		super(tx * Entity.TILED_RES, ty * Entity.TILED_RES, Entity.TILED_RES * (16 / swidth), Entity.TILED_RES * (16 / swidth), sx, sy, swidth, sheight, sframes);
 		
 		this.isInInventory = isInInventory;
 	}
 	
+	/**
+	 * AnimatedItemStack Constructor with direct coordinate values.
+	 *
+	 * @param x The coordinate of the x plane in pixels.
+	 * @param y The coordinate of the y plane in pixels.
+	 * @param width The width of the texture in pixels.
+	 * @param height The height of the texture in pixels.
+	 * @param sx The place within the game tile spreadsheet where the texture is located on the x axis
+	 * @param sy The place within the game tile spreadsheet where the texture is located on the y axis
+	 * @param swidth The width of the texture within the game tile spreadsheet on the x axis
+	 * @param sheight The width of the texture within the game tile spreadsheet on the y axis
+	 * @param sframes The number of frames in the animation.
+	 */
 	public AnimatedItemStack(int x, int y, int width, int height, int sx, int sy, int swidth, int sheight, int sframes) {
 		super(x, y, width, height, sx, sy, swidth, sheight, sframes);
 		
 		this.isInInventory = false;
 	}
 	
+	/**
+	 * AnimatedItemStack Constructor with direct coordinate values and isInInventory flag.
+	 *
+	 * @param x The coordinate of the x plane in pixels.
+	 * @param y The coordinate of the y plane in pixels.
+	 * @param width The width of the texture in pixels.
+	 * @param height The height of the texture in pixels.
+	 * @param sx The place within the game tile spreadsheet where the texture is located on the x axis
+	 * @param sy The place within the game tile spreadsheet where the texture is located on the y axis
+	 * @param swidth The width of the texture within the game tile spreadsheet on the x axis
+	 * @param sheight The width of the texture within the game tile spreadsheet on the y axis
+	 * @param sframes The number of frames in the animation.
+	 * @param isInInventory The flag whether the item is in the inventory or not.
+	 */
 	public AnimatedItemStack(int x, int y, int width, int height, int sx, int sy, int swidth, int sheight, int sframes, boolean isInInventory) {
 		super(x, y, width, height, sx, sy, swidth, sheight, sframes);
 		
 		this.isInInventory = isInInventory;
 	}
 	
+	/**
+	 * Overridden method from {@link org.johncollin.catacombcrawlers.entity.AnimatedEntity} for special
+	 * update method.
+	 *
+	 * @see org.johncollin.catacombcrawlers.entity.Entity
+	 * @see org.johncollin.catacombcrawlers.entity.AnimatedEntity
+	 *
+	 * @since rev004-1.0.0-SNAPSHOT
+	 */
 	@Override
 	public void render(SpriteBatch batch) {
 		if(!isInInventory) {
@@ -63,6 +135,15 @@ public abstract class AnimatedItemStack extends AnimatedEntity {
 		}
 	}
 	
+	/**
+	 * Special method that tells the entity to render at a specific point.
+	 *
+	 * @param batch SpriteBatch used to render images within LibGDX.
+	 * @param x The coordinate of the x plane in pixels.
+	 * @param y The coordinate of the y plane in pixels.
+	 * @param width The width of the texture in pixels.
+	 * @param height The height of the texture in pixels.
+	 */
 	public void renderAt(SpriteBatch batch, int x, int y, int width, int height) {
 		if(isInInventory) {
 			batch.draw(textures[currentTexture], x, y, width, height);

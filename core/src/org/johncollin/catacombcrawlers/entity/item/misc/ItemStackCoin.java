@@ -27,16 +27,50 @@ package org.johncollin.catacombcrawlers.entity.item.misc;
 import org.johncollin.catacombcrawlers.entity.Entity;
 import org.johncollin.catacombcrawlers.entity.item.AnimatedItemStack;
 
+/**
+ * ItemStackCoin base class
+ *
+ * @see org.johncollin.catacombcrawlers.entity.Entity
+ * @see org.johncollin.catacombcrawlers.entity.StaticEntity
+ * @see org.johncollin.catacombcrawlers.entity.item.ItemStack
+ *
+ * @since rev-004-1.0.0-SNAPSHOT
+ */
 public class ItemStackCoin extends AnimatedItemStack {
 	
+	/**
+	 * Animation clock by units of tick (how many frames have passed until update essentially)
+	 */
 	private static int animClock = 0;
+	/**
+	 * Animation frame clock (rate at how slow the frames cycle essentially)
+	 */
 	private static final int animClockMax = 5;
 	
+	/**
+	 * Basic ItemStackCoin Constructor
+	 *
+	 * @param tx The coordinate of the x plane in a unit of standard game tiles.
+	 * @param ty The coordinate of the y plane in a unit of standard game tiles.
+	 *
+	 * @see org.johncollin.catacombcrawlers.entity.StaticEntity
+	 *
+	 * @since rev-004-1.0.0-SNAPSHOT
+	 */
 	public ItemStackCoin(int tx, int ty) {
 		super((tx * Entity.TILED_RES) + 4, (ty * Entity.TILED_RES) + 4, Entity.TILED_RES / 4, Entity.TILED_RES / 4,
 			288, 272, 8, 8, 4);
 	}
 	
+	/**
+	 * Overridden method from {@link org.johncollin.catacombcrawlers.entity.AnimatedEntity} for special
+	 * update method.
+	 *
+	 * @see org.johncollin.catacombcrawlers.entity.Entity
+	 * @see org.johncollin.catacombcrawlers.entity.AnimatedEntity
+	 *
+	 * @since rev004-1.0.0-SNAPSHOT
+	 */
 	@Override
 	public void tick() {
 		animClock++;

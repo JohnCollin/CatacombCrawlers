@@ -27,8 +27,24 @@ package org.johncollin.catacombcrawlers.entity.wall.banner;
 import org.johncollin.catacombcrawlers.entity.Entity;
 import org.johncollin.catacombcrawlers.entity.StaticEntity;
 
+/**
+ * WallBannerRed base class
+ *
+ * @see org.johncollin.catacombcrawlers.entity.Entity
+ * @see org.johncollin.catacombcrawlers.entity.StaticEntity
+ *
+ * @since rev-004-1.0.0-SNAPSHOT
+ */
 public class WallBannerRed extends StaticEntity {
 	
+	/**
+	 * WallBannerRed basic constructor
+	 *
+	 * @param tx The coordinate of the x plane in a unit of standard game tiles.
+	 * @param ty The coordinate of the y plane in a unit of standard game tiles.
+	 *
+	 * @since rev-004-1.0.0-SNAPSHOT
+	 */
 	public WallBannerRed(int tx, int ty) {
 		super(tx * Entity.TILED_RES, ty * Entity.TILED_RES, Entity.TILED_RES, Entity.TILED_RES,
 			16, 32, 16, 16);
